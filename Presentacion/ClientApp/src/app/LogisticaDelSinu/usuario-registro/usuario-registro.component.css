@@ -1,0 +1,14 @@
+#contenedor{
+    width: 800px;
+    margin: auto;
+    max-width: 100%;
+    padding: 20px;
+}
+
+#labelApellidos{
+    margin-top: 14px;
+}
+
+#labelCelular{
+    margin-top: 14px;
+}

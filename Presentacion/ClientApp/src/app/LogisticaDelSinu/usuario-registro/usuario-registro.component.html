@@ -1,0 +1,82 @@
+<form id="contenedor" [formGroup]="formGroup">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Identificacion</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="identificacion" [ngClass]="{ 'is-invalid': control.identificacion.errors && control.identificacion.touched}" placeholder="Escriba aquí su identificacion">
+        <div *ngIf="control.identificacion.errors && control.identificacion.touched"  class="invalid-feedback">
+            <div *ngIf="control.identificacion.errors.required">Se require la identificacion</div>
+        </div>
+    </div>
+
+    <label for="formGroupExampleInput">Nombres</label>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="primerNombre" [ngClass]="{ 'is-invalid': control.primerNombre.errors && control.primerNombre.touched}" placeholder="Primer nombre">
+        <div *ngIf="control.primerNombre.errors && control.primerNombre.touched" class="invalid-feedback">
+            <div *ngIf="control.primerNombre.errors.required">Se require el primer nombre</div>
+        </div>
+    </div>
+      <div class="col">
+        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="segundoNombre" placeholder="Segundo nombre">
+      </div>
+    </div>
+
+    <label id="labelApellidos" for="formGroupExampleInput">Apellidos</label>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" id="formGroupExampleInput" formControlName="primerApellido" [ngClass]="{ 'is-invalid': control.primerApellido.errors && control.primerApellido.touched}" placeholder="Primer apellido">
+            <div *ngIf="control.primerApellido.errors && control.primerApellido.touched" class="invalid-feedback">
+                <div *ngIf="control.primerApellido.errors.required">Se require el primer apellido</div>
+            </div>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="formGroupExampleInput" formControlName="segundoAPellido" [ngClass]="{ 'is-invalid': control.segundoAPellido.errors && control.segundoAPellido.touched}" placeholder="Segundo apellido">
+            <div *ngIf="control.segundoAPellido.errors && control.segundoAPellido.touched" class="invalid-feedback">
+                <div *ngIf="control.segundoAPellido.errors.required">Se require el segundo apellido</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label id="labelCelular" for="formGroupExampleInput">Numero celular</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="telefono" [ngClass]="{ 'is-invalid': control.telefono.errors && control.telefono.touched}" placeholder="Escriba aquí su numero de celular">
+        <div *ngIf="control.telefono.errors && control.telefono.touched" class="invalid-feedback">
+            <div *ngIf="control.telefono.errors.required">Se require el numero de celular</div>
+            <div *ngIf="control.telefono.errors.minlength">El numero de telefono especificado no es valido</div>
+            <div *ngIf="control.telefono.errors.maxlength">El numero de telefono especificado no es valido</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Correo electronico</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="correoElectronico" [ngClass]="{ 'is-invalid': control.correoElectronico.errors && control.correoElectronico.touched}" aria-describedby="emailHelp" placeholder="Escriba aquí su correo electronico">
+        <div *ngIf="control.correoElectronico.errors && control.correoElectronico.touched" class="invalid-feedback">
+            <div *ngIf="control.correoElectronico.errors.required">Se require el correo electronico</div>
+            <div *ngIf="control.correoElectronico.errors.email">El correo electronico especificado no es valido</div>
+        </div>
+    </div>
+
+    <label for="formGroupExampleInput">Contraseña</label>
+    <div class="form-row">
+      <div class="col">
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="clave" [ngClass]="{ 'is-invalid': control.clave.errors && control.clave.touched}" placeholder="Escriba aqui su contraseña">
+        <div *ngIf="control.clave.errors && control.clave.touched" class="invalid-feedback">
+            <div *ngIf="control.clave.errors.required">Se require la contraseña</div>
+            <div *ngIf="control.clave.errors.minlength">Se requiere un minimo de 6 digitos</div>
+        </div>
+    </div>
+      <div class="col">
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="confirmacionClave" [ngClass]="{ 'is-invalid': control.confirmacionClave.errors && control.confirmacionClave.touched}" placeholder="Confirme la contraseña">
+        <div *ngIf="control.confirmacionClave.errors && control.confirmacionClave.touched" class="invalid-feedback">
+            <div *ngIf="control.confirmacionClave.errors.required">Se require la confirmacion</div>
+            <div *ngIf="control.confirmacionClave.errors.claveDiferente && !control.confirmacionClave.errors.required">Las contraseñas no coinciden</div>
+        </div>
+    </div>
+    </div>
+
+    <br><br>
+    <div class="text-center">
+    <button type="button" class="btn btn-success" (click)="onSubmit()" [disabled]="formGroup.invalid">Registrar</button>
+    <button class="btn btn-secondary" type="reset">Cancelar</button>
+    </div>
+
+</form>

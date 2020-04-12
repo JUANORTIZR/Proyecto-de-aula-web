@@ -1,0 +1,13 @@
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Logica.deps.json
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Logica.dll
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Logica.pdb
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Datos.dll
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Datos.pdb
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\obj\Debug\netstandard2.0\Logica.csprojAssemblyReference.cache
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfoInputs.cache
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfo.cs
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\obj\Debug\netstandard2.0\Logica.csproj.CopyComplete
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\obj\Debug\netstandard2.0\Logica.dll
+C:\Users\JUAN CARLOS\Universidad\Programacion web\Proyecto de aula programacion web\App web\Logica\obj\Debug\netstandard2.0\Logica.pdb
