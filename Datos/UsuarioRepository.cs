@@ -6,7 +6,6 @@ namespace Datos
     public class UsuarioRepository
     {
         private readonly SqlConnection _connection;
-        private readonly List<Usuario> Usuarios = new List<Usuario>();
         public UsuarioRepository(ConnectionManager connection)
         {
             _connection = connection._conexion;

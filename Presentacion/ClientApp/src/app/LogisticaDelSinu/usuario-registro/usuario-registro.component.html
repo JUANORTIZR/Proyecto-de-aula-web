@@ -1,7 +1,12 @@
 <form id="contenedor" [formGroup]="formGroup">
+    <h1 id="titulo-registro">Registro usuario</h1>
+    <hr>
+    <div class="alert alert-info" role="alert">
+        <i id="icono" class="fas fa-info-circle"></i><label id="text-info">Para acceder a nuestros servicios debe estar registrado.</label>
+    </div>
     <div class="form-group">
-        <label for="formGroupExampleInput">Identificacion</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="identificacion" [ngClass]="{ 'is-invalid': control.identificacion.errors && control.identificacion.touched}" placeholder="Escriba aquí su identificacion">
+        <label for="formGroupExampleInput">Identificación</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="identificacion" [ngClass]="{ 'is-invalid': control.identificacion.errors && control.identificacion.touched}" placeholder="Escriba aquí su identificación">
         <div *ngIf="control.identificacion.errors && control.identificacion.touched"  class="invalid-feedback">
             <div *ngIf="control.identificacion.errors.required">Se require la identificacion</div>
         </div>
@@ -37,7 +42,7 @@
     </div>
 
     <div class="form-group">
-        <label id="labelCelular" for="formGroupExampleInput">Numero celular</label>
+        <label id="labelCelular" for="formGroupExampleInput">Número celular</label>
         <input type="text" class="form-control" id="formGroupExampleInput" formControlName="telefono" [ngClass]="{ 'is-invalid': control.telefono.errors && control.telefono.touched}" placeholder="Escriba aquí su numero de celular">
         <div *ngIf="control.telefono.errors && control.telefono.touched" class="invalid-feedback">
             <div *ngIf="control.telefono.errors.required">Se require el numero de celular</div>
@@ -47,14 +52,14 @@
     </div>
 
     <div class="form-group">
-        <label for="exampleInputEmail1">Correo electronico</label>
+        <label for="exampleInputEmail1">Correo electrónico</label>
         <input type="email" class="form-control" id="exampleInputEmail1" formControlName="correoElectronico" [ngClass]="{ 'is-invalid': control.correoElectronico.errors && control.correoElectronico.touched}" aria-describedby="emailHelp" placeholder="Escriba aquí su correo electronico">
         <div *ngIf="control.correoElectronico.errors && control.correoElectronico.touched" class="invalid-feedback">
             <div *ngIf="control.correoElectronico.errors.required">Se require el correo electronico</div>
             <div *ngIf="control.correoElectronico.errors.email">El correo electronico especificado no es valido</div>
         </div>
     </div>
-
+   
     <label for="formGroupExampleInput">Contraseña</label>
     <div class="form-row">
       <div class="col">
@@ -68,15 +73,15 @@
         <input type="password" class="form-control" id="exampleInputPassword1" formControlName="confirmacionClave" [ngClass]="{ 'is-invalid': control.confirmacionClave.errors && control.confirmacionClave.touched}" placeholder="Confirme la contraseña">
         <div *ngIf="control.confirmacionClave.errors && control.confirmacionClave.touched" class="invalid-feedback">
             <div *ngIf="control.confirmacionClave.errors.required">Se require la confirmacion</div>
-            <div *ngIf="control.confirmacionClave.errors.claveDiferente && !control.confirmacionClave.errors.required">Las contraseñas no coinciden</div>
+            <div *ngIf="control.confirmacionClave.errors.claveDiferente && !control.confirmacionClave.errors.required">{{control.confirmacionClave.errors.messageError}}</div>
         </div>
     </div>
     </div>
 
     <br><br>
-    <div class="text-center">
-    <button type="button" class="btn btn-success" (click)="onSubmit()" [disabled]="formGroup.invalid">Registrar</button>
-    <button class="btn btn-secondary" type="reset">Cancelar</button>
+    <div class="row row-cols-2">
+    <button type="button" id="btn-registro" class="btn col mr-1 ml-3" (click)="onSubmit()" [disabled]="formGroup.invalid">Registrar</button>
+    <button class="btn btn-secondary col ml-1 mr-3" type="reset">Cancelar</button>
     </div>
-
+    
 </form>

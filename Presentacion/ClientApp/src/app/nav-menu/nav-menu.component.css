@@ -19,3 +19,12 @@ html {
 .navbar {
   background-color: white !important;
 }
+
+#btn-color:hover{
+  background-color: rgb(0, 107, 136);
+}
+
+#btn-color{
+  background-color: rgb(0, 107, 160);
+  color: aliceblue;
+}

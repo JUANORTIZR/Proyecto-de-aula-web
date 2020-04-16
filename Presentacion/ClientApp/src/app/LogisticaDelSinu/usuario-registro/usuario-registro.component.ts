@@ -14,13 +14,13 @@ export class UsuarioRegistroComponent implements OnInit {
 
   formGroup: FormGroup;
   usuario: Usuario;
-  constructor(private usuarioService:UsuarioService, private formBuilder: FormBuilder) { }
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-      this.buildForm();
+    this.buildForm();
   }
-  
-  private buildForm(){
+
+  private buildForm() {
     this.usuario = new Usuario();
     this.usuario.identificacion = "";
     this.usuario.primerNombre = "";
@@ -32,15 +32,15 @@ export class UsuarioRegistroComponent implements OnInit {
     this.usuario.clave = "";
 
     this.formGroup = this.formBuilder.group({
-      identificacion:[this.usuario.identificacion, Validators.required],
-      primerNombre:[this.usuario.primerNombre, Validators.required],
-      segundoNombre:[this.usuario.segundoNombre],
-      primerApellido:[this.usuario.primerApellido, Validators.required],
-      segundoAPellido:[this.usuario.segundoAPellido, Validators.required],
-      telefono:[this.usuario.telefono, [Validators.required,Validators.minLength(10), Validators.maxLength(12)]],
-      correoElectronico:[this.usuario.correoElectronico, [Validators.required, Validators.email]],
-      clave:[this.usuario.clave, [Validators.required,Validators.minLength(6)]],
-      confirmacionClave:["",[Validators.required,this.ClaveConfirmada('clave')]]
+      identificacion: [this.usuario.identificacion, Validators.required],
+      primerNombre: [this.usuario.primerNombre, Validators.required],
+      segundoNombre: [this.usuario.segundoNombre],
+      primerApellido: [this.usuario.primerApellido, Validators.required],
+      segundoAPellido: [this.usuario.segundoAPellido, Validators.required],
+      telefono: [this.usuario.telefono, [Validators.required, Validators.minLength(10), Validators.maxLength(12)]],
+      correoElectronico: [this.usuario.correoElectronico, [Validators.required, Validators.email]],
+      clave: [this.usuario.clave, [Validators.required, Validators.minLength(6)]],
+      confirmacionClave: ["", [Validators.required, this.ClaveConfirmada('clave')]]
     });
 
   }
@@ -55,8 +55,8 @@ export class UsuarioRegistroComponent implements OnInit {
     }
     this.registrar();
   }
-  
-  registrar(){
+
+  registrar() {
     this.usuario = this.formGroup.value;
     this.usuarioService.post(this.usuario).subscribe(p => {
       if (p != null) {
@@ -64,24 +64,18 @@ export class UsuarioRegistroComponent implements OnInit {
         this.usuario = p;
       }
     });
-
   }
 
   ClaveConfirmada(otherControlName: string): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        const otherControl: AbstractControl = control.root.get(otherControlName);
+      const otherControl: AbstractControl = control.root.get(otherControlName);
 
-        if (otherControl) {
-            const subscription: Subscription = otherControl
-                .valueChanges
-                .subscribe(() => {
-                    control.updateValueAndValidity();
-                    subscription.unsubscribe();
-                });
-        }
+      if (otherControl && control.value !== otherControl.value) {
+        return { claveDiferente: true, messageError: "Las contraseñas no coinciden" };
+      }
 
-        return (otherControl && control.value !== otherControl.value) ? {claveDiferente: true} : null;
+      return null;
     };
-}
-  
+  }
+
 }
