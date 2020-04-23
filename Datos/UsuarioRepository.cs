@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Entity;
 namespace Datos
@@ -28,5 +29,39 @@ namespace Datos
             }
         }
 
+
+        public List<Usuario> Consultar(){
+            List<Usuario> usuarios = new List<Usuario>();
+            SqlDataReader dataReader;
+
+            using(var commad = _connection.CreateCommand()){
+                commad.CommandText = "select * from Usuarios";
+                dataReader = commad.ExecuteReader();
+                if(dataReader.HasRows){
+                    while(dataReader.Read()){
+                        Usuario usuario = MapearUsuario(dataReader);
+                        usuarios.Add(usuario);
+                    }
+                }
+            }
+            return usuarios;
+        }
+
+        private Usuario MapearUsuario(SqlDataReader dataReader)
+        {
+            if(!dataReader.HasRows) return null;
+            Usuario usuario = new Usuario();
+            usuario.Identificacion = (string)dataReader["Identificacion"];
+            usuario.PrimerNombre = (string)dataReader["PrimerNombre"];
+            usuario.SegundoNombre = (string)dataReader["SegundoNombre"];
+            usuario.PrimerApellido = (string)dataReader["PrimerApellido"];
+            usuario.SegundoApellido = (string)dataReader["SegundoApellido"];
+            usuario.Telefono = (string)dataReader["Telefono"];
+            usuario.CorreoElectronico = (string)dataReader["CorreoElectronico"];
+            usuario.Clave = (string)dataReader["Clave"];
+
+            return usuario;
+
+        }
     }
 }

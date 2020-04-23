@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { UsuarioRegistroComponent } from './logisticaDelSinu/usuario-registro/usuario-registro.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioService } from './services/usuario.service';
+import { UsuarioConsultaComponent } from './LogisticaDelSinu/usuario-consulta/usuario-consulta.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UsuarioService } from './services/usuario.service';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    UsuarioRegistroComponent
+    UsuarioRegistroComponent,
+    UsuarioConsultaComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="page-header">
+          <h2 class="pageheader-title">Gestion usuario</h2>
+          <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+          <div class="page-breadcrumb">
+              <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                      <li class="breadcrumb-item"
+                      [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }"><a class="breadcrumb-link" [routerLink]="['/']">Inicio</a></li>
+                      <li class="breadcrumb-item"><a class="breadcrumb-link">Gestion usuario</a></li>
+                      <li class="breadcrumb-item " [routerLinkActive]="['link-active']" ><a class="breadcrumb-link" [routerLink]="['/UsuarioRegistro']">Consultar Usuarios</a></li>                  
+                  </ol>
+              </nav>
+          </div>
+      </div>
+  </div>
+</div>
+
+<table class="table" *ngIf='usuarios && usuarios.length'>
+    <thead class="thead-dark" >
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Identificacion</th>
+        <th scope="col">Primer nombre</th>
+        <th scope="col">Segundo nombre</th>
+        <th scope="col">Primer apellido</th>
+        <th scope="col">Segundo apellido</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Correo Electronico</th>
+        <th scope="col">Clave</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let usuario of usuarios; index as i'>
+        <th scope="row">{{i+1}}</th>
+        <td>{{usuario.identificacion}}</td>
+        <td>{{usuario.primerNombre}}</td>
+        <td>{{usuario.segundoNombre}}</td>
+        <td>{{usuario.primerApellido}}</td>
+        <td>{{usuario.segundoApellido}}</td>
+        <td>{{usuario.telefono}}</td>
+        <td>{{usuario.correoElectronico}}</td>
+        <td>{{usuario.clave}}</td>
+      </tr>
+    </tbody>
+  </table>

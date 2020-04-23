@@ -25,5 +25,13 @@ export class UsuarioService {
         catchError(this.handleErrorService.handleError<Usuario>('Registrar Usuario', null))
       );
   }
+  get(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.baseUrl + 'api/Usuario')
+        .pipe(
+            tap(_ => this.handleErrorService.log('datos enviados')),
+            catchError(this.handleErrorService.handleError<Usuario[]>('Consulta Usuario', null))
+        );
+  }
+
 
 }

@@ -20,7 +20,7 @@ export class UsuarioRegistroComponent implements OnInit {
     this.buildForm();
   }
 
-  private buildForm() {
+  private buildForm(){
     this.usuario = new Usuario();
     this.usuario.identificacion = "";
     this.usuario.primerNombre = "";

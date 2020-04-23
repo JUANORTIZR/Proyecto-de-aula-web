@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Entity;
 using Logica;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +50,12 @@ namespace Presentacion.Controllers
             return usuario;
         }
 
+        [HttpGet]
+        public IEnumerable<UsuarioViewModel> Gets()
+        {
+            var usuarios = _usuarioService.Consultar().Usuarios.Select(p=> new UsuarioViewModel(p));
+            return usuarios;
+        }
 
     }
 }

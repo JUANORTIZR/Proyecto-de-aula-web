@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Datos;
 using Entity;
 
@@ -29,6 +30,18 @@ namespace Logica
                 return new GuardarUsuarioResponse($"Error de la Aplicacion: {e.Message}");
             }
             finally { _conexion.Close(); }
+        }
+
+        public ConsultarUsuarioResponse Consultar(){
+            try
+            {
+                _conexion.Open();
+                List<Usuario> usuarios = _repositorio.Consultar();
+                _conexion.Close();
+                return new ConsultarUsuarioResponse(usuarios);
+            }catch(Exception e){
+                return new ConsultarUsuarioResponse($"Error de la Aplicaion: {e.Message}");
+            }finally{_conexion.Close();}
         }
     }
 }

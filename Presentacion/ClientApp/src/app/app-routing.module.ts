@@ -2,13 +2,18 @@ import { UsuarioRegistroComponent } from './logisticaDelSinu/usuario-registro/us
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { UsuarioConsultaComponent } from './LogisticaDelSinu/usuario-consulta/usuario-consulta.component';
 
 
 const routes: Routes = [
     {
     path: 'UsuarioRegistro',
     component: UsuarioRegistroComponent
-    }
+    },
+  {
+    path: 'UsuarioConsulta',
+    component:UsuarioConsultaComponent
+  }
 ]  
 
 @NgModule({
